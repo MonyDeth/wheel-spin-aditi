@@ -13,7 +13,7 @@
 
   "prizeBannerUrl": "",
 
-  "backgroundUrl": "https://i.ibb.co/HLXrbkhY/bggg.png",
+  "backgroundUrl": "https://i.ibb.co/VprFLDMF/image.png",
 
 
 
@@ -30,7 +30,10 @@
   ],
 
   "logo": [
-    { "name": "Main", "url": "http://asset.aditi.com.kh/images/logo/6350fb1789751.png" },
-    { "name": "Second", "url": "https://i.ibb.co/CsswzkYm/aditi-logo-white.png" }
+    { "name": "Academy", "url": "    https://i.ibb.co/4nY5QTff/ADITI-Academy-2.png" },
+    { "name": "ADITI", "url": "http://asset.aditi.com.kh/images/logo/6350fb1789751.png" },
+    { "name": "Second White", "url": "https://i.ibb.co/CsswzkYm/aditi-logo-white.png" }
+
+
   ]
 }
