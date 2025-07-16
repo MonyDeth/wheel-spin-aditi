@@ -1,0 +1,16 @@
+{
+  "prizes": [
+    { "name": "asd 1", "image": "https://placehold.co/400x400/3b82f6/ffffff?text=Prize+1" },
+    { "name": "adsada 2", "image": "https://placehold.co/400x400/ef4444/ffffff?text=Prize+2" },
+    { "name": "asdasdsadsadsad 3", "image": "https://placehold.co/400x400/22c55e/ffffff?text=Prize+3" },
+    { "name": "dasd 4", "image": "https://placehold.co/400x400/eab308/ffffff?text=Prize+4" },
+    { "name": "asdasd 5", "image": "https://placehold.co/400x400/8b5cf6/ffffff?text=Prize+5" },
+    { "name": "dassadadsasd 6", "image": "https://placehold.co/400x400/ec4899/ffffff?text=Prize+6" }
+  ],
+  "prizeBannerUrl": "",
+  "ads": "http://asset.aditi.com.kh/images/teams63579a273a632.jpg\nhttp://asset.aditi.com.kh/images/teams63ef0472b4606.jpg\nhttp://asset.aditi.com.kh/images/teams/63ef091e57a6b.jpg\nhttp://asset.aditi.com.kh/images/teams6357996ba91e2.jpg",
+  "colors": [
+    "#9A0C26",
+    "#ffffff"
+  ]
+}

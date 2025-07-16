@@ -24,13 +24,13 @@
         }
         .wheel-container {
             position: relative;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
         }
         @media (max-width: 768px) {
             .wheel-container {
-                width: 350px;
-                height: 350px;
+                width: 500px;
+                height: 500px;
             }
         }
         .pointer {
@@ -38,7 +38,7 @@
             height: 0;
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
-            border-left: 25px solid red; /* Points right, gets flipped to point left */
+            border-left: 25px solid #B41F3A; /* Points right, gets flipped to point left */
         }
         #ad-image-container {
             position: relative;
@@ -78,7 +78,7 @@
         <div class="left-container transition-layout flex w-full md:w-1/2 justify-center items-center relative">
             <div class="flex-shrink-0 relative flex items-center justify-center">
                 <div class="wheel-container">
-                    <canvas id="wheel-canvas" width="500" height="500"></canvas>
+                    <canvas id="wheel-canvas" width="600" height="600"></canvas>
 
                     <button id="spin-btn"
                             class="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full border-8 border-gray-200 text-gray-800 font-bold text-xl shadow-2xl animate-pulse-zoom flex items-center justify-center text-center transition-transform duration-200 disabled:opacity-50 disabled:animate-none">
@@ -188,7 +188,7 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded',  () => {
         // --- Elements ---
         const canvas = document.getElementById('wheel-canvas');
         const ctx = canvas.getContext('2d');
@@ -225,22 +225,41 @@
         const leftContainer  = document.querySelector('.left-container');
         const rightContainer = document.querySelector('.right-container');
 
-        // --- State ---
-        let prizes = [
-            { name: 'Prize 1', image: 'https://placehold.co/400x400/3b82f6/ffffff?text=Prize+1' },
-            { name: 'Prize 2', image: 'https://placehold.co/400x400/ef4444/ffffff?text=Prize+2' },
-            { name: 'Prize 3', image: 'https://placehold.co/400x400/22c55e/ffffff?text=Prize+3' },
-            { name: 'Prize 4', image: 'https://placehold.co/400x400/eab308/ffffff?text=Prize+4' },
-            { name: 'Prize 5', image: 'https://placehold.co/400x400/8b5cf6/ffffff?text=Prize+5' },
-            { name: 'Prize 6', image: 'https://placehold.co/400x400/ec4899/ffffff?text=Prize+6' },
-        ];
-        let colors = ['#9A0C26', '#ffffff'];
+        let prizes = [];
+        let prizeBannerUrl = '';
+        let adBannerUrls = [];
+        let colors = [];
+
+        fetch('./Preload/preload.json')
+            .then(res => res.json())
+            .then(data => {
+                prizes = data.prizes;
+                prizeBannerUrl = data.prizeBannerUrl;
+                adBannerUrls = data.ads.split('\n').map(url => url.trim()).filter(Boolean);
+                colors = data.colors;
+
+                console.log("Ad banner URLs:", adBannerUrls);
+
+                // Initialize here, AFTER data loaded
+                updatePrizeList();
+                drawWheel();
+                updateAdImage();
+                startAdCarousel();
+                adBannerUrlsInput.value = adBannerUrls.join('\n');
+            })
+            .catch(err => {
+                console.error("Error loading preload.json", err);
+                // Initialize with default or empty data as fallback
+                updatePrizeList();
+                drawWheel();
+                updateAdImage();
+                startAdCarousel();
+            });
+
         let spinDuration = 8;
         let spinAngle = 0;
         let isSpinning = false;
         let animationFrameId;
-        let prizeBannerUrl = '';
-        let adBannerUrls = ['https://placehold.co/300x300/e2e8f0/334155?text=Your+Ad+Here'];
         let adFlipInterval = 5000;
         let currentAdIndex = 0;
         let adCarouselIntervalId;
@@ -500,6 +519,8 @@
         startAdCarousel();
         adBannerUrlsInput.value = adBannerUrls.join('\n');
     });
+
+
 </script>
 </body>
 </html>
