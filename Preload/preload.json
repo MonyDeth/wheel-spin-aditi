@@ -1,16 +1,36 @@
 {
   "prizes": [
-    { "name": "asd 1", "image": "https://placehold.co/400x400/3b82f6/ffffff?text=Prize+1" },
-    { "name": "adsada 2", "image": "https://placehold.co/400x400/ef4444/ffffff?text=Prize+2" },
-    { "name": "asdasdsadsadsad 3", "image": "https://placehold.co/400x400/22c55e/ffffff?text=Prize+3" },
-    { "name": "dasd 4", "image": "https://placehold.co/400x400/eab308/ffffff?text=Prize+4" },
-    { "name": "asdasd 5", "image": "https://placehold.co/400x400/8b5cf6/ffffff?text=Prize+5" },
-    { "name": "dassadadsasd 6", "image": "https://placehold.co/400x400/ec4899/ffffff?text=Prize+6" }
+    { "name": "Smartphone", "image": "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D" },
+    { "name": "Wireless Headphones", "image": "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww" },
+    { "name": "Fitness Tracker", "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Rml0bmVzcyUyMFRyYWNrZXJ8ZW58MHx8MHx8fDA%3D" },
+    { "name": "Gaming Console", "image": "https://images.unsplash.com/photo-1749135583881-1c12ee0f6134?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bml0ZW5kbyUyMHN3aXRjaHxlbnwwfHwwfHx8MA%3D%3D" },
+    { "name": "Smartwatch", "image": "https://images.unsplash.com/photo-1624096104992-9b4fa3a279dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXBwbGUlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D" },
+    { "name": "Backpack", "image": "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFja3BhY2t8ZW58MHx8MHx8fDA%3D" },
+    { "name": "Tumbler", "image": "https://images.unsplash.com/photo-1729192293999-ffbdc97cbac9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHR1bWJsZXJ8ZW58MHx8MHx8fDA%3D" },
+    { "name": "Tote Bag ", "image": "https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG90ZSUyMGJhZ3xlbnwwfHwwfHx8MA%3D%3D" }
   ],
+
+
   "prizeBannerUrl": "",
-  "ads": "http://asset.aditi.com.kh/images/teams63579a273a632.jpg\nhttp://asset.aditi.com.kh/images/teams63ef0472b4606.jpg\nhttp://asset.aditi.com.kh/images/teams/63ef091e57a6b.jpg\nhttp://asset.aditi.com.kh/images/teams6357996ba91e2.jpg",
+
+  "backgroundUrl": "https://i.ibb.co/HLXrbkhY/bggg.png",
+
+
+
+  "ads": [
+    { "name": "Ad 1", "url": "http://asset.aditi.com.kh/images/teams63579a273a632.jpg" },
+    { "name": "Ad 2", "url": "http://asset.aditi.com.kh/images/teams63ef0472b4606.jpg" },
+    { "name": "Ad 3", "url": "http://asset.aditi.com.kh/images/teams/63ef091e57a6b.jpg" },
+    { "name": "Ad 4", "url": "http://asset.aditi.com.kh/images/teams6357996ba91e2.jpg" }
+  ],
+
   "colors": [
     "#9A0C26",
     "#ffffff"
+  ],
+
+  "logo": [
+    { "name": "Main", "url": "http://asset.aditi.com.kh/images/logo/6350fb1789751.png" },
+    { "name": "Second", "url": "https://i.ibb.co/CsswzkYm/aditi-logo-white.png" }
   ]
 }

@@ -24,8 +24,8 @@
         }
         .wheel-container {
             position: relative;
-            width: 600px;
-            height: 600px;
+            width: 500px;
+            height: 500px;
         }
         @media (max-width: 768px) {
             .wheel-container {
@@ -78,7 +78,7 @@
         <div class="left-container transition-layout flex w-full md:w-1/2 justify-center items-center relative">
             <div class="flex-shrink-0 relative flex items-center justify-center">
                 <div class="wheel-container">
-                    <canvas id="wheel-canvas" width="600" height="600"></canvas>
+                    <canvas id="wheel-canvas" width="500" height="500"></canvas>
 
                     <button id="spin-btn"
                             class="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full border-8 border-gray-200 text-gray-800 font-bold text-xl shadow-2xl animate-pulse-zoom flex items-center justify-center text-center transition-transform duration-200 disabled:opacity-50 disabled:animate-none">
@@ -104,88 +104,186 @@
 
 <!-- Prize Modal -->
 <div id="prize-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-lg w-full mx-4 transform transition-all scale-95 opacity-0">
+    <div
+            class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-lg w-full mx-4 transform transition-all scale-95 opacity-0">
         <h2 class="text-2xl font-bold text-gray-800 mb-2">Congratulations!</h2>
 
         <p class="text-gray-600 mb-4">You've won:</p>
-        <img id="won-prize-image" src="" alt="Prize Image"
-             class="max-w-full h-40 object-contain mx-auto mb-4 rounded-lg hidden">
 
-        <p id="prize-result" class="text-4xl font-bold text-blue-600 mb-6"></p>
+        <img id="won-prize-image" src="" alt="Prize Image"
+             class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg block" />
+
+        <p id="prize-result" class="text-4xl font-bold text-[#B41F3A] mb-6"></p>
 
         <div id="prize-banner-container" class="mb-6 hidden">
-            <img id="prize-banner-img" src="" alt="Prize Banner"
-                 class="max-w-full h-auto rounded-lg mx-auto">
+            <img id="prize-banner-img" src="" alt="Prize Banner" class="max-w-full h-auto rounded-lg mx-auto" />
         </div>
 
         <button id="close-prize-modal"
-                class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-transform hover:scale-105">
+                class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition-transform hover:scale-105">
             Awesome!
         </button>
     </div>
 </div>
 
+
 <!-- Settings Modal -->
-<div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-3xl mx-4 transform transition-all scale-95 opacity-0 max-h-[90vh] flex flex-col">
-        <div class="flex justify-between items-center mb-6 flex-shrink-0">
-            <h2 class="text-2xl font-bold text-gray-800">Customization</h2>
-            <button id="close-settings-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+<div id="settings-modal" class="fixed h-90 inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-200 rounded-2xl shadow-2xl p-4 md:p-6 w-full max-w-5xl mx-4 transform transition-all scale-95 opacity-0 h-[750px] flex flex-col md:flex-row overflow-hidden">
+
+        <!-- Left Tabs -->
+        <nav class="flex md:flex-col w-full m-4 md:w-1/4 space-x-4 md:space-x-0 md:space-y-2 overflow-x-auto md:overflow-visible flex-shrink-0 mb-4 md:mb-0 pr-2 md:pr-0">
+            <h2 class="text-2xl font-bold text-gray-800">Configuration</h2>
+            <button data-tab="prizes" class="tab-btn text-left px-4 py-3 bg-blue-100 text-blue-700 rounded-lg font-semibold">🎁 Prizes</button>
+            <button data-tab="appearance" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🎨 Appearance</button>
+            <button data-tab="background" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🌄 Background</button>
+            <button data-tab="prize-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🏆 Prize Banner</button>
+            <button data-tab="ad-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">📢 Banner</button>
+        </nav>
+
+
+
+        <!-- Right Content -->
+        <div class="flex-1 overflow-y-auto pl-0 md:pl-6 p-4 bg-white rounded-xl">
+            <div class="flex justify-end items-center mb-4 sticky top-0 bg-white z-10">
+                <button id="close-settings-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+
+            <div id="tab-content" class="space-y-10">
+                <!-- Prizes Tab -->
+                <div id="prizes-tab" class="tab-pane">
+                    <h3 class="font-semibold text-lg mb-4">Manage Prizes</h3>
+                    <div id="prize-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
+
+                    <div class="mt-4 border-t pt-4 space-y-2">
+                        <p class="text-sm text-gray-500">You need at least 2 prizes to spin the wheel.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                            <input type="text" id="new-prize-name-input" placeholder="Prize Name"
+                                   class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <input type="text" id="new-prize-image-input" placeholder="Image URL (optional)"
+                                   class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <button id="add-prize-btn"
+                                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appearance Tab -->
+                <div id="appearance-tab" class="tab-pane hidden">
+                    <h3 class="font-semibold text-lg mb-4">Appearance</h3>
+                    <div class="flex flex-wrap justify-between items-center gap-4">
+                        <div>
+                            <label for="color1" class="block text-sm font-medium text-gray-700 mb-1">Primary Color</label>
+                            <input type="color" id="color1" value="#3b82f6"
+                                   class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
+                        </div>
+                        <div>
+                            <label for="color2" class="block text-sm font-medium text-gray-700 mb-1">Secondary Color</label>
+                            <input type="color" id="color2" value="#ffffff"
+                                   class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
+                        </div>
+                        <div class="flex items-center gap-2 ml-auto">
+                            <label for="spin-duration" class="text-sm font-medium text-gray-700 whitespace-nowrap">Spin Time (seconds)</label>
+                            <input type="number" id="spin-duration" min="3" max="15" value="8"
+                                   class="w-16 p-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-lg mb-4 mt-6">Manage Logos</h3>
+                    <div id="logo-list"
+                         class="space-y-2 max-h-40 overflow-y-auto border border-gray-200 bg-gray-200 rounded-lg p-2">
+                        <!-- Logos go here -->
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-4">Upload your brand or sponsor logos here.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
+                        <input type="text" id="new-logo-name-input" placeholder="Logo Name"
+                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <input type="text" id="new-logo-url-input" placeholder="Logo URL"
+                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <button id="add-logo-btn"
+                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                            Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Background Tab -->
+                <div id="background-tab" class="tab-pane hidden">
+                    <h3 class="font-semibold text-lg mb-4">Page Background</h3>
+                    <p class="text-sm text-gray-600 mb-2">Enter an image URL to set as the background.</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="bg-image-url" placeholder="https://example.com/image.jpg"
+                               class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <button id="set-bg-btn"
+                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
+                    </div>
+                    <!-- Background Image Preview -->
+                    <div id="bg-image-preview"
+                         class="mt-4 rounded-lg border border-gray-300">
+                        <img id="bg-image-preview-img" src="" alt="Background Preview"
+                             class="w-full h-48 object-cover rounded-lg" />
+                    </div>
+                    <button id="remove-bg-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Background</button>
+                </div>
+
+                <!-- Prize Banner Tab -->
+                <div id="prize-banner-tab" class="tab-pane hidden">
+                    <h3 class="font-semibold text-lg mb-4">Prize Won Banner</h3>
+                    <p class="text-sm text-gray-600 mb-2">Enter an image URL to show in the popup when a prize is won.</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="prize-banner-image-url" placeholder="https://example.com/banner.jpg"
+                               class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <button id="set-prize-banner-btn"
+                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
+                    </div>
+                    <!-- Prize Banner Image Preview -->
+                    <div id="prize-banner-image-preview"
+                         class="mt-4 rounded-lg border border-gray-300">
+                        <img id="prize-banner-preview-img" src="" alt="Prize Banner Preview"
+                             class="w-full h-48 object-cover rounded-lg" />
+                    </div>
+                    <button id="remove-prize-banner-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Banner</button>
+                </div>
+
+                <!-- Ad Banner Tab -->
+                <div id="ad-banner-tab" class="tab-pane hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-lg">Manage Banner Images</h3>
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-2 text-sm">
+                                <label for="ad-flip-interval" class="text-gray-700">Interval (s):</label>
+                                <input type="number" id="ad-flip-interval" min="1" max="15" value="5"
+                                       class="w-16 p-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <button id="save-ad-settings-btn"
+                                    class="bg-blue-600 text-white font-bold py-1.5 px-4 rounded-lg hover:bg-blue-700 text-sm whitespace-nowrap">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ad-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
+
+                    <p class="text-sm text-gray-500">Add banner ads to rotate on the screen.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
+                        <input type="text" id="new-ad-name-input" placeholder="Ad Name"
+                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <input type="text" id="new-ad-url-input" placeholder="Image URL"
+                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <button id="add-ad-btn"
+                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="border-b border-gray-200 flex-shrink-0">
-            <nav class="flex -mb-px overflow-x-auto" id="settings-tabs">
-                <button data-tab="prizes" class="tab-btn border-b-2 border-blue-600 text-blue-600 py-4 px-6 block hover:text-blue-600 focus:outline-none font-semibold flex-shrink-0">Prizes</button>
-                <button data-tab="appearance" class="tab-btn text-gray-500 py-4 px-6 block hover:text-blue-600 focus:outline-none font-semibold flex-shrink-0">Appearance</button>
-                <button data-tab="background" class="tab-btn text-gray-500 py-4 px-6 block hover:text-blue-600 focus:outline-none font-semibold flex-shrink-0">Background</button>
-                <button data-tab="prize-banner" class="tab-btn text-gray-500 py-4 px-6 block hover:text-blue-600 focus:outline-none font-semibold flex-shrink-0">Prize Banner</button>
-                <button data-tab="ad-banner" class="tab-btn text-gray-500 py-4 px-6 block hover:text-blue-600 focus:outline-none font-semibold flex-shrink-0">Ad Banner</button>
-            </nav>
-        </div>
-
-        <div id="tab-content" class="py-6 overflow-y-auto">
-            <div id="prizes-tab" class="tab-pane">
-                <h3 class="font-semibold text-lg mb-4">Manage Prizes</h3>
-                <div id="prize-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4 border-t pt-4">
-                    <input type="text" id="new-prize-name-input" placeholder="Prize Name" class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                    <input type="text" id="new-prize-image-input" placeholder="Image URL (optional)" class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                </div>
-                <button id="add-prize-btn" class="w-full mt-2 bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Add Prize</button>
-                <p class="text-sm text-gray-500 mt-2">You need at least 2 prizes.</p>
-            </div>
-            <div id="appearance-tab" class="tab-pane hidden">
-                <h3 class="font-semibold text-lg mb-4">Wheel Appearance</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div><label for="color1" class="block text-sm font-medium text-gray-700">Primary Color</label><input type="color" id="color1" value="#3b82f6" class="mt-1 block w-full h-10 rounded-lg border-gray-300"></div>
-                    <div><label for="color2" class="block text-sm font-medium text-gray-700">Secondary Color</label><input type="color" id="color2" value="#ffffff" class="mt-1 block w-full h-10 rounded-lg border-gray-300"></div>
-                </div>
-                <h3 class="font-semibold text-lg mb-4 mt-6">Spin Duration</h3>
-                <div><label for="spin-duration" class="block text-sm font-medium text-gray-700">Spin Time (seconds)</label><input type="range" id="spin-duration" min="3" max="15" value="8" class="mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"><div class="text-center text-gray-600 mt-1"><span id="spin-duration-value">8</span>s</div></div>
-            </div>
-            <div id="background-tab" class="tab-pane hidden">
-                <h3 class="font-semibold text-lg mb-4">Page Background</h3>
-                <p class="text-sm text-gray-600 mb-2">Enter an image URL to set as the background.</p>
-                <div class="flex gap-2"><input type="text" id="bg-image-url" placeholder="https://example.com/image.jpg" class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"><button id="set-bg-btn" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button></div>
-                <button id="remove-bg-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Background</button>
-            </div>
-            <div id="prize-banner-tab" class="tab-pane hidden">
-                <h3 class="font-semibold text-lg mb-4">Prize Won Banner</h3>
-                <p class="text-sm text-gray-600 mb-2">Enter an image URL to show in the popup when a prize is won.</p>
-                <div class="flex gap-2"><input type="text" id="prize-banner-image-url" placeholder="https://example.com/banner.jpg" class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"><button id="set-prize-banner-btn" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button></div>
-                <button id="remove-prize-banner-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Banner</button>
-            </div>
-            <div id="ad-banner-tab" class="tab-pane hidden">
-                <h3 class="font-semibold text-lg mb-4">Manage Ad Banner Images</h3>
-                <p class="text-sm text-gray-600 mb-2">Enter image URLs, one per line.</p>
-                <textarea id="ad-banner-urls" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500" rows="4" placeholder="https://placehold.co/300x300/e2e8f0/334155?text=Ad+1&#10;https://placehold.co/300x300/3b82f6/ffffff?text=Ad+2"></textarea>
-                <h3 class="font-semibold text-lg mb-2 mt-4">Image Flip Interval</h3>
-                <div><label for="ad-flip-interval" class="block text-sm font-medium text-gray-700">Interval (seconds)</label><input type="range" id="ad-flip-interval" min="1" max="15" value="5" class="mt-1 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"><div class="text-center text-gray-600 mt-1"><span id="ad-flip-interval-value">5</span>s</div></div>
-                <button id="save-ad-settings-btn" class="mt-6 w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Save Ad Settings</button>
-            </div>
-        </div>
     </div>
-</div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded',  () => {
@@ -224,37 +322,72 @@
         const saveAdSettingsBtn = document.getElementById('save-ad-settings-btn');
         const leftContainer  = document.querySelector('.left-container');
         const rightContainer = document.querySelector('.right-container');
+        const adListContainer = document.getElementById('ad-list');
+        const logoListEl = document.getElementById('logo-list');
+        const newLogoNameInput = document.getElementById('new-logo-name-input');
+        const newLogoUrlInput = document.getElementById('new-logo-url-input');
+        const addLogoBtn = document.getElementById('add-logo-btn');
 
+        //customization
         let prizes = [];
         let prizeBannerUrl = '';
         let adBannerUrls = [];
         let colors = [];
+        let logos = []; // Array of {name, url}
+        let selectedLogoIndex = 0; // Index of active logo
 
         fetch('./Preload/preload.json')
             .then(res => res.json())
             .then(data => {
                 prizes = data.prizes;
                 prizeBannerUrl = data.prizeBannerUrl;
-                adBannerUrls = data.ads.split('\n').map(url => url.trim()).filter(Boolean);
+                backgroundUrl = data.backgroundUrl || '';
+
+                adBannerUrls = Array.isArray(data.ads)
+                    ? data.ads.map(ad => ({ name: ad.name || '', url: ad.url?.trim() || '' })).filter(ad => ad.url)
+                    : data.ads.split('\n').map(url => ({ name: '', url: url.trim() })).filter(ad => ad.url);
+
                 colors = data.colors;
+                logos = data.logo || [];
 
-                console.log("Ad banner URLs:", adBannerUrls);
-
-                // Initialize here, AFTER data loaded
+                // Initialize UI and visuals
                 updatePrizeList();
                 drawWheel();
                 updateAdImage();
                 startAdCarousel();
-                adBannerUrlsInput.value = adBannerUrls.join('\n');
+                updateAdList();
+                applyBackgroundImage();
+
+                updateLogoList();
+                updateSelectedLogo();
             })
             .catch(err => {
                 console.error("Error loading preload.json", err);
-                // Initialize with default or empty data as fallback
                 updatePrizeList();
                 drawWheel();
                 updateAdImage();
                 startAdCarousel();
             });
+
+
+        function applyBackgroundImage() {
+            const container = document.getElementById('app-container'); // or whichever container should get background
+            if (backgroundUrl) {
+                container.style.backgroundImage = `url('${backgroundUrl}')`;
+                container.style.backgroundSize = 'cover';
+                container.style.backgroundPosition = 'center';
+            } else {
+                container.style.backgroundImage = '';
+            }
+        }
+
+        document.getElementById("remove-bg-btn").addEventListener("click", () => {
+            backgroundUrl = '';
+            document.getElementById("bg-image-url").value = "";
+            applyBackgroundImage();
+        });
+
+
 
         let spinDuration = 8;
         let spinAngle = 0;
@@ -352,12 +485,84 @@
             const winningIndex = Math.floor((2 * Math.PI - finalAngle) / ((2 * Math.PI) / prizes.length)) % prizes.length;
             setTimeout(() => showPrizeModal(prizes[winningIndex]), 500);
         };
+        // logo
+        function updateLogoList() {
+            logoListEl.innerHTML = '';
+            logos.forEach((logo, index) => {
+                const isSelected = index === selectedLogoIndex;
+
+                const logoItem = document.createElement('div');
+                logoItem.className = "flex items-center gap-3 p-1 rounded hover:bg-gray-100 cursor-pointer bg-gray-200";
+
+                // Radio button
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'selected-logo';
+                radio.checked = isSelected;
+                radio.id = `logo-radio-${index}`;
+                radio.className = 'accent-blue-600';
+                radio.addEventListener('change', () => {
+                    selectedLogoIndex = index;
+                    updateSelectedLogo();
+                    updateLogoList(); // re-render to reflect new selection
+                });
+
+                // Logo thumbnail
+                const img = document.createElement('img');
+                img.src = logo.url;
+                img.alt = logo.name;
+                img.className = "w-12 h-12 object-contain border border-gray-300 rounded bg-gray-200";
+
+                // Logo label
+                const label = document.createElement('label');
+                label.htmlFor = radio.id;
+                label.textContent = logo.name;
+                label.className = "cursor-pointer";
+
+                // Combine elements
+                logoItem.appendChild(radio);
+                logoItem.appendChild(img);
+                logoItem.appendChild(label);
+                logoListEl.appendChild(logoItem);
+            });
+        }
+
+        function updateSelectedLogo() {
+            if (logos[selectedLogoIndex]) {
+                openSettingsBtn.src = logos[selectedLogoIndex].url;
+                // You could also save selectedLogoIndex to localStorage or backend here
+            }
+        }
+
+// Add new logo handler
+        addLogoBtn.addEventListener('click', () => {
+            const name = newLogoNameInput.value.trim();
+            const url = newLogoUrlInput.value.trim();
+            if (!name || !url) {
+                alert('Please provide both name and URL for the logo.');
+                return;
+            }
+            logos.push({ name, url });
+            selectedLogoIndex = logos.length - 1; // select new logo by default
+            updateLogoList();
+            updateSelectedLogo();
+
+            // Clear inputs
+            newLogoNameInput.value = '';
+            newLogoUrlInput.value = '';
+        });
 
         // --- Ad Banner ---
         const updateAdImage = () => {
-            if (adBannerUrls.length === 0) { adImageContainer.innerHTML = ''; return; }
+            if (adBannerUrls.length === 0) {
+                adImageContainer.innerHTML = '';
+                return;
+            }
+
+            const ad = adBannerUrls[currentAdIndex];
             const newImage = document.createElement('img');
-            newImage.src = adBannerUrls[currentAdIndex];
+            newImage.src = ad.url;
+            newImage.alt = ad.name || 'Ad Image';
             newImage.onerror = () => newImage.src = 'https://placehold.co/300x300/fecaca/991b1b?text=Image+Error';
             newImage.style.opacity = '0';
 
@@ -370,6 +575,113 @@
                 setTimeout(() => oldImage.remove(), 500);
             }
         };
+        const updateAdList = () => {
+            adListContainer.innerHTML = '';
+            adBannerUrls.forEach((ad, index) => {
+                const adEl = document.createElement('div');
+                adEl.className = 'p-2 bg-gray-100 rounded-lg flex items-center gap-3';
+
+                // Create thumbnail image element
+                const thumbnail = document.createElement('img');
+                thumbnail.src = ad.url;
+                thumbnail.alt = ad.name || 'Ad Thumbnail';
+                thumbnail.onerror = () => thumbnail.src = 'https://placehold.co/40x40/f0f0f0/999999?text=No+Image';
+                thumbnail.style.width = '40px';
+                thumbnail.style.height = '40px';
+                thumbnail.style.objectFit = 'cover';
+                thumbnail.style.borderRadius = '6px';
+                thumbnail.style.flexShrink = '0';
+
+                // Create content container
+                const content = document.createElement('div');
+                content.className = 'flex-grow';
+
+                content.innerHTML = `
+            <div class="flex justify-between items-center">
+                <span class="font-semibold">${ad.name || 'Unnamed Ad'}</span>
+                <button data-index="${index}" class="remove-ad-btn text-red-500 hover:text-red-700 text-xl">&times;</button>
+            </div>
+            <p class="text-xs text-gray-500 truncate mt-1">${ad.url}</p>
+        `;
+
+                adEl.appendChild(thumbnail);
+                adEl.appendChild(content);
+                adListContainer.appendChild(adEl);
+            });
+        };
+
+
+        document.getElementById('add-ad-btn').addEventListener('click', () => {
+            const name = document.getElementById('new-ad-name-input').value.trim();
+            const url = document.getElementById('new-ad-url-input').value.trim();
+            if (url) {
+                adBannerUrls.push({ name, url });
+                document.getElementById('new-ad-name-input').value = '';
+                document.getElementById('new-ad-url-input').value = '';
+                updateAdList();
+            }
+        });
+        document.getElementById('set-bg-btn').addEventListener('click', () => {
+            const url = document.getElementById('bg-image-url').value.trim();
+            if (url) {
+                backgroundUrl = url;
+                applyBackgroundImage();
+                // Optionally, show preview or confirmation
+                alert('Background updated!');
+            } else {
+                alert('Please enter a valid background image URL.');
+            }
+        });
+
+        adListContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-ad-btn')) {
+                const index = parseInt(e.target.dataset.index, 10);
+                adBannerUrls.splice(index, 1);
+                updateAdList();
+            }
+        });
+        document.getElementById('ad-flip-interval').addEventListener('input', e => {
+            document.getElementById('ad-flip-interval-value').textContent = e.target.value;
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.getAttribute('data-tab');
+
+                // Toggle active button styling
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('bg-blue-100', 'text-blue-700');
+                    btn.classList.add('text-gray-600');
+                });
+                button.classList.add('bg-blue-100', 'text-blue-700');
+                button.classList.remove('text-gray-600');
+
+                // Show the selected tab pane
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.add('hidden');
+                });
+                document.getElementById(`${tab}-tab`).classList.remove('hidden');
+            });
+        });
+
+        function setupImagePreview(inputId, previewContainerId) {
+            const input = document.getElementById(inputId);
+            const previewContainer = document.getElementById(previewContainerId);
+            const previewImg = previewContainer.querySelector('img');
+
+            input.addEventListener('input', () => {
+                const url = input.value.trim();
+                if (url) {
+                    previewImg.src = url;
+                    previewContainer.classList.remove('hidden');
+                } else {
+                    previewImg.src = '';
+                    previewContainer.classList.add('hidden');
+                }
+            });
+        }
+
+
 
         const startAdCarousel = () => {
             if (adCarouselIntervalId) clearInterval(adCarouselIntervalId);
@@ -434,18 +746,38 @@
             prizeListContainer.innerHTML = '';
             prizes.forEach((prize, index) => {
                 const prizeEl = document.createElement('div');
-                prizeEl.className = 'p-2 bg-gray-100 rounded-lg';
-                prizeEl.innerHTML = `
-                        <div class="flex justify-between items-center">
-                            <span class="font-semibold">${prize.name}</span>
-                            <button data-index="${index}" class="remove-prize-btn text-red-500 hover:text-red-700 text-xl">&times;</button>
-                        </div>
-                        <p class="text-xs text-gray-500 truncate mt-1">${prize.image || 'No image'}</p>
-                    `;
+                prizeEl.className = 'p-2 bg-gray-100 rounded-lg flex items-center gap-3';
+
+                // Thumbnail image
+                const thumbnail = document.createElement('img');
+                thumbnail.src = prize.image || '';
+                thumbnail.alt = prize.name || 'Prize Thumbnail';
+                thumbnail.onerror = () => thumbnail.src = 'https://placehold.co/40x40/f0f0f0/999999?text=No+Image';
+                thumbnail.style.width = '40px';
+                thumbnail.style.height = '40px';
+                thumbnail.style.objectFit = 'cover';
+                thumbnail.style.borderRadius = '6px';
+                thumbnail.style.flexShrink = '0';
+
+                // Content container
+                const content = document.createElement('div');
+                content.className = 'flex-grow';
+
+                content.innerHTML = `
+            <div class="flex justify-between items-center">
+                <span class="font-semibold">${prize.name}</span>
+                <button data-index="${index}" class="remove-prize-btn text-red-500 hover:text-red-700 text-xl">&times;</button>
+            </div>
+            <p class="text-xs text-gray-500 truncate mt-1">${prize.image || 'No image'}</p>
+        `;
+
+                prizeEl.appendChild(thumbnail);
+                prizeEl.appendChild(content);
                 prizeListContainer.appendChild(prizeEl);
             });
             drawWheel();
         };
+
 
         prizeListContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('remove-prize-btn')) {
@@ -458,6 +790,36 @@
                 }
             }
         });
+
+
+        document.getElementById("remove-bg-btn").addEventListener("click", () => {
+            document.getElementById("bg-image-url").value = "";
+            document.getElementById("bg-image-preview-img").src = "";
+        });
+
+        // Prize Banner
+        document.getElementById("set-prize-banner-btn").addEventListener("click", () => {
+            const url = document.getElementById("prize-banner-image-url").value.trim();
+            const img = document.getElementById("prize-banner-preview-img");
+
+            if (url) {
+                prizeBannerUrl = url;
+                img.src = url;
+                img.classList.remove('hidden');
+                document.getElementById("prize-banner-preview-container").classList.remove('hidden');
+            } else {
+                alert("Please enter a valid image URL for the prize banner.");
+            }
+        });
+
+
+        document.getElementById("remove-prize-banner-btn").addEventListener("click", () => {
+            prizeBannerUrl = '';
+            document.getElementById("prize-banner-image-url").value = '';
+            document.getElementById("prize-banner-preview-img").src = '';
+            document.getElementById("prize-banner-preview-container").classList.add('hidden');
+        });
+
 
         const addPrize = () => {
             const name = newPrizeNameInput.value.trim();
@@ -517,7 +879,11 @@
         drawWheel();
         updateAdImage();
         startAdCarousel();
-        adBannerUrlsInput.value = adBannerUrls.join('\n');
+        updateLogoList();
+        updateSelectedLogo();
+        setupImagePreview('bg-image-url', 'bg-image-preview');
+        setupImagePreview('prize-banner-image-url', 'prize-banner-image-preview');
+
     });
 
 
