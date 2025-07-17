@@ -1,13 +1,15 @@
 {
   "prizes": [
-    { "name": "Smartphone", "image": "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D" },
-    { "name": "Wireless Headphones", "image": "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww" },
-    { "name": "Fitness Tracker", "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Rml0bmVzcyUyMFRyYWNrZXJ8ZW58MHx8MHx8fDA%3D" },
-    { "name": "Gaming Console", "image": "https://images.unsplash.com/photo-1749135583881-1c12ee0f6134?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bml0ZW5kbyUyMHN3aXRjaHxlbnwwfHwwfHx8MA%3D%3D" },
-    { "name": "Smartwatch", "image": "https://images.unsplash.com/photo-1624096104992-9b4fa3a279dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXBwbGUlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D" },
-    { "name": "Backpack", "image": "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFja3BhY2t8ZW58MHx8MHx8fDA%3D" },
-    { "name": "Tumbler", "image": "https://images.unsplash.com/photo-1729192293999-ffbdc97cbac9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHR1bWJsZXJ8ZW58MHx8MHx8fDA%3D" },
-    { "name": "Tote Bag ", "image": "https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG90ZSUyMGJhZ3xlbnwwfHwwfHx8MA%3D%3D" }
+    { "name": "Spin Again 😅", "image": "<ADD_LINK_HERE>", "percentage": 12.14 },
+    { "name": "50% Scholarship 🤩", "image": "<ADD_LINK_HERE>", "percentage": 6.13 },
+    { "name": "Spin Again 😅", "image": "<ADD_LINK_HERE>", "percentage": 12.14 },
+    { "name": "Tech Quiz! 🧐", "image": "<ADD_LINK_HERE>", "percentage": 14.84 },
+    { "name": "Selfie with Our Team 😎", "image": "<ADD_LINK_HERE>", "percentage": 7.42 },
+    { "name": "30% Scholarship 😄", "image": "<ADD_LINK_HERE>", "percentage": 9.18 },
+    { "name": "Free One Course 😊", "image": "<ADD_LINK_HERE>", "percentage": 3.06 },
+    { "name": "Tech Career Consultation 👩‍💼", "image": "<ADD_LINK_HERE>", "percentage": 14.84 },
+    { "name": "Selfie with Our Team 😎", "image": "<ADD_LINK_HERE>", "percentage": 7.42 },
+    { "name": "ADITI Academy Tote Bag 🥰", "image": "<ADD_LINK_HERE>", "percentage": 14.98 }
   ],
 
 
@@ -15,13 +17,21 @@
 
   "backgroundUrl": "https://i.ibb.co/VprFLDMF/image.png",
 
-
-
   "ads": [
     { "name": "Ad 1", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/511315624_607158569081610_3790594660577371994_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGZW3cPkwuRsyXnIiDGBoNCdxxXOY-ccRB3HFc5j5xxEAtskKlnWdaDdKfZJS0I51DNccJPTRma6-CifuG1oGeU&_nc_ohc=lEHlYJhSUwQQ7kNvwFAtf23&_nc_oc=AdnR05EUbqM1iQVjQwAp20ubibeOY3kRH55Fhr9sGPCsgFV_bOPn9JPi9tRhcun22Yk&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=Z-1KXDOnRxQXtUnl_T3X6w&oh=00_AfSHaXjlZSZ7_-0-X-CSCA93Iut1VNBalO4UjIwd7o6FaQ&oe=687D24BA" },
     { "name": "Ad 2", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/477230830_507910775673057_6713635824771760117_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGuci0DIkpA7RopJbb__qP1MLL7o0aKSDcwsvujRopIN9ozW4SbUF7XOL_g7_mUqsOsmh3UxvbSaGsVy1CzGr9S&_nc_ohc=838dDMvJGx0Q7kNvwHf1MyB&_nc_oc=AdmLiQ5qKGKLhGWkyJI_Nr_JZ8IykxRfcc8rJOM8vYv4Pp_K-jWG1RVemszRpOvMZbU&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=6uhIFMtOtDSALzu2s_bPEw&oh=00_AfRv-XwXhGA5uDnscJ8Ztsmk27XOoI-jseosW44gppv9TQ&oe=687D28EB" },
     { "name": "Ad 3", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/476218938_503442529453215_5705297180962929941_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFKC65zsgwbhe_cgMjW67gC8_ZkGRj3e0_z9mQZGPd7T94eum0jzCeQnFNlHMfBAB9JSKTChRqeSzvnIDvjt6g4&_nc_ohc=gqUT-u_vDq8Q7kNvwEdusz-&_nc_oc=AdlJl45_LzuyWSGS7Tbrmk5VfPmB6TaKOGlEriqrPLr1-3w3sBgcq0wFyYJpi40L9J8&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=KYHDhzo7xS-YBqHMDPrQkw&oh=00_AfT4LbfgCA4aS_fEN-DbxnnRlLtCrL7VSq0-f6-zEfqZdQ&oe=687D27D2" },
-    { "name": "Ad 4", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/477443083_507910832339718_8419540172895638262_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvbtqg1lhassSkLGZrV5tICVOaZF4oAMkJU5pkXigAyagERjl_fZa2hOoUYmM9dB9LcWWgfKiUtNwYzD1-Hs5f&_nc_ohc=v2J8C0NfZQAQ7kNvwFzHt-T&_nc_oc=Adnl4KNmRk936u6dJjl6nVRzBk2QqSLsa1N0_IIzS5UKmvfqR5V4q0onHobjv1kT8Ik&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=t-Y2FtPV0g2plpi5NeBqtA&oh=00_AfQoyogW88sJlsKdGiHDVXK6_DzC_y_2DIt6O2bCsziOTg&oe=687D2C01" }
+    { "name": "Ad 4", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/477443083_507910832339718_8419540172895638262_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvbtqg1lhassSkLGZrV5tICVOaZF4oAMkJU5pkXigAyagERjl_fZa2hOoUYmM9dB9LcWWgfKiUtNwYzD1-Hs5f&_nc_ohc=v2J8C0NfZQAQ7kNvwFzHt-T&_nc_oc=Adnl4KNmRk936u6dJjl6nVRzBk2QqSLsa1N0_IIzS5UKmvfqR5V4q0onHobjv1kT8Ik&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=t-Y2FtPV0g2plpi5NeBqtA&oh=00_AfQoyogW88sJlsKdGiHDVXK6_DzC_y_2DIt6O2bCsziOTg&oe=687D2C01" },
+    { "name": "Ad 5", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/515756317_620496064414527_5623228959366548434_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFLOE87X7Fsr_cjxLBpSgu8cgnuPaRMOhdyCe49pEw6F9yJLAOdLynr05gEigCm_Kmvg6aSrR-0O3kH8tEBQGtI&_nc_ohc=v_8jmJAS-foQ7kNvwFziYuY&_nc_oc=AdmF_R1PdHCm2bQGxZzOUVpn-nZxBBuXMYUPeexwEL1HyUOl0fVH771aanP7wL2Iogw&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=Q7urGoUR2fhLuO2L53k2GQ&oh=00_AfREknoLAdsk2LylO3Od_naLQnjif3gQNJ4Tx47gDeACWA&oe=687E7B5A" },
+    { "name": "Ad 7", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/476149493_503438882786913_6246441204515156597_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxvb6EKkiPemhLsMXps01LBI3-1cUmHLQEjf7VxSYctJzK3f08jGzhRbK1_FkIRdj0GPG2-bKMNr_MswC2tayk&_nc_ohc=xlYUmKk6vJcQ7kNvwFLQS-G&_nc_oc=Adkg-nxiGWAzQOjO-ioQ_V1BLIVJiw83pntcBEdZWXI-SOHkxwhSDeG8HwVTpSt4gBw&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=WFjuH8SmIMyIwf7HcDKMuQ&oh=00_AfQtWoKuYLBGCxQFLWBNBke6wiTYvjd6spiSnH0qLYqbkg&oe=687EA123" },
+    { "name": "Ad 8", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/475961824_502928232837978_1497170796456113048_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHrmAAdBRZO8-OtCB5Wq3ImZXTyTl6zBrdldPJOXrMGt4DlW_Dt-yNicYgIAK0FPRLe8HhaSAkfGR4G52oF1Ezi&_nc_ohc=dIEf708LgKwQ7kNvwEmFIPX&_nc_oc=AdnDAdqLr_5IO3FFeuTgVQQoMTtpNLdbHBz8HYh4LXePzg4kMh5P6xlUSSm7UDsIgJg&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=H9OUqUS71I94VYucB1J0nA&oh=00_AfRfAEuGFtZr3ocRcfbIeu1ljnqdMAzMXPYyOUw_zG54yg&oe=687EA95D" },
+    { "name": "Ad 9", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/475969563_498859626578172_1361714834209623735_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFLWgrV6UwIXRkq8Q0-kILVvqN1RFNG07e-o3VEU0bTtx7-XflP7fqxy8-KUzaXy2tHxhlZ-kps8n8EoHvnCsDN&_nc_ohc=i9fnbI9Gh3wQ7kNvwGrOv2N&_nc_oc=AdnP-fW5UJszGwDN_xIRU1XEPtKbFfHxFTe7JWcuPcMkRoqQJFN7cKXVY0Qx9Y5Ygj8&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=NSMrfzQWyAwLW340NZKc_A&oh=00_AfQ3mnI9za-dc9kPxURrRUDfRGAxDzinr5Yhw2cYvMIIWA&oe=687E93AE" },
+    { "name": "Ad 10", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/473574392_486717707792364_5273612153829994666_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGU6XFnotOtw0TkQ6xgYTDqP16HjEfS-TY_XoeMR9L5Nnk_S6i35qv4lTLQvhNLJL5YhMNIVexyCNV6tdDS-27G&_nc_ohc=vn3BDjhO0dYQ7kNvwEr7hGT&_nc_oc=AdmEXSfy3g4TMYufKfR-p1IaPdY_Ji1-yegyLTDi9_WFmbcl70OdZgPYJjVS1U71eWw&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=LIRvfzGMdaPrxx2JJo53RQ&oh=00_AfQh36iUA62SIqlqq0q7kyIUOd6GN1wI6vgnnXfsJOQ_iw&oe=687EAFC1" },
+    { "name": "Ad 11", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/477445744_507910562339745_8830311108299619057_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHV3wqMoAxWxQuq3t9vRy01EPvgg4M-6e4Q--CDgz7p7tAe63XlYs9Ne9OVG9uTKug2Ff7TwD6klRuHf0uaSH2I&_nc_ohc=rdZXNtNgTyMQ7kNvwF0JuEp&_nc_oc=AdnBKxbpsMltAPjT0-GxkGG0CKNUWnGXqDAGOwXr3QcnMBzra2SOmUsF0hXUGdzdsu8&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=QVuPsAGK9E64ZCaeoC-0KQ&oh=00_AfSmHsPCXEKTre9lBOW9QOQ_zxJcyFcuPvLeXmTe7FQ52Q&oe=687EAE2D" },
+    { "name": "Ad 12", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/475404879_498859893244812_5366896237340457357_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG8R9JhmjcZ2B0WafcWb7aj0tiEB2V50YHS2IQHZXnRgW38oWdiR10g0xbyIScW6-VTIJ6WM3WQCSxpUn9rxm76&_nc_ohc=vkuFZAdaLYUQ7kNvwGoEnxE&_nc_oc=Adn3MhNyAja9qgTcHbjSRAdnIvhVczGicAnYhBl0ltOwFiOexILBif2DiggvDL_5xt4&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=0HeWklEj1Td65ZENbf50Fw&oh=00_AfTHTYzBqaVD1IH1zGhGtiCF7w_hChbomK_IfG2S0FfM5g&oe=687EA136" },
+    { "name": "Ad 13", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/475881653_499510459846422_294125742590434256_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGypumyq9on757Ciq-L9wrrgaON9Eu0YbiBo430S7RhuM82lBvf9L9_F_jqaO7e2ZnPHcfZkcguZBS-M77AD3nO&_nc_ohc=xc0M-OSZKBQQ7kNvwF7EWZF&_nc_oc=AdnKYSX52fBU3oFsQ8JLmEjZWZOwDF8EEmkTvgKEcT9lTqvC_hmNU-8bYDJWmDfAnP0&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=fZ-4Bx5jz3BQ--A2N9hScg&oh=00_AfR6WCO77zkUP0R1xEOB6FpIM0hGa8xM8Qiq_9KpkZjdzQ&oe=687EB36F" },
+    { "name": "Ad 14", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/475671053_499061533224648_7274188833357311372_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHaTWIccmlOI3Nw6yyFcfTFwu393trRO43C7f3e2tE7jdU6edvZZqg1N4qUoUc3IocZ0FaoU6Wx2kAApkOkST0l&_nc_ohc=_MQRGSHGiXgQ7kNvwFjHkPn&_nc_oc=AdlM-Wqa7UqHT63SQtvqn0ML1HdPSc5ouBKtOLuSkPQw29iQNJcXRg8Hm117fgyh67g&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=eL_98YV7eUxABlseNfpb8g&oh=00_AfRkyVDfWqI8EH4pKdwdYefskPakcwKlwR02dJC3EQ31lg&oe=687E9579" },
+    { "name": "Ad 15", "url": "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/509433829_607159169081550_5557773128838188_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF2SGOohM01PWUsV3D061rBvyYYWyf_Tq2_JhhbJ_9OrdMts7RFbJooL-6EQXT1H3t7q2f04itDlUNY0gs_YlyV&_nc_ohc=KIGkASXl9iYQ7kNvwERBI97&_nc_oc=AdkA7Fn0WvhGptngwhsXbtZAy9iK7sYoql02eIbKqVdqvO5Yiew41lSPA_B9S3M2vPs&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=W1Y91-1zQ4jSL__Vtp3-CQ&oh=00_AfQS9CulZSFn-QpZYjCFil_c1smlQ2ZTFByU95pneBKCsg&oe=687E8606" }
   ],
 
   "colors": [
@@ -33,7 +43,6 @@
     { "name": "Academy", "url": "    https://i.ibb.co/4nY5QTff/ADITI-Academy-2.png" },
     { "name": "ADITI", "url": "http://asset.aditi.com.kh/images/logo/6350fb1789751.png" },
     { "name": "Second White", "url": "https://i.ibb.co/CsswzkYm/aditi-logo-white.png" }
-
 
   ]
 }

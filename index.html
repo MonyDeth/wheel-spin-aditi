@@ -30,13 +30,13 @@
         }
         .wheel-container {
             position: relative;
-            width: 600px;
-            height: 600px;
+            width: 650px;
+            height: 650px;
         }
         @media (max-width: 768px) {
             .wheel-container {
-                width: 600px;
-                height: 600px;
+                width: 650px;
+                height: 650px;
             }
         }
         .pointer {
@@ -87,7 +87,7 @@
         <div class="left-container transition-layout flex w-full md:w-1/2 justify-center items-center relative">
             <div class="flex-shrink-0 relative flex items-center justify-center">
                 <div class="wheel-container">
-                    <canvas id="wheel-canvas" width="600" height="600"></canvas>
+                    <canvas id="wheel-canvas" width="650" height="650"></canvas>
 
                     <button id="spin-btn"
                             class="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full border-8 border-gray-200 text-gray-800 font-bold text-xl shadow-2xl animate-pulse-zoom flex items-center justify-center text-center transition-transform duration-200 disabled:opacity-50 disabled:animate-none">
@@ -119,14 +119,14 @@
 
         <p class="text-gray-600 mb-4">You've won:</p>
 
-        <img id="won-prize-image" src="" alt="Prize Image"
-             class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg block" />
+<!--        <img id="won-prize-image" src="" alt="Prize Image"-->
+<!--             class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg block" />-->
 
         <p id="prize-result" class="text-4xl font-bold text-[#B41F3A] mb-6"></p>
 
-        <div id="prize-banner-container" class="mb-6 hidden">
-            <img id="prize-banner-img" src="" alt="Prize Banner" class="max-w-full h-auto rounded-lg mx-auto" />
-        </div>
+<!--        <div id="prize-banner-container" class="mb-6 hidden">-->
+<!--            <img id="prize-banner-img" src="" alt="Prize Banner" class="max-w-full h-auto rounded-lg mx-auto" />-->
+<!--        </div>-->
 
         <button id="close-prize-modal"
                 class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition-transform hover:scale-105">
@@ -290,8 +290,9 @@
                 </div>
             </div>
         </div>
-
     </div>
+    </div>
+</div>
 
 
 <script>
@@ -405,7 +406,7 @@
         let spinAngle = 0;
         let isSpinning = false;
         let animationFrameId;
-        let adFlipInterval = 5000;
+        let adFlipInterval = 10000;
         let currentAdIndex = 0;
         let adCarouselIntervalId;
 
@@ -423,9 +424,7 @@
 
         // --- Wheel ---
         const drawWheel = () => {
-            const numPrizes = prizes.length;
-            if (numPrizes === 0) return;
-            const arcSize = (2 * Math.PI) / numPrizes;
+            if (prizes.length === 0) return;
             const radius = canvas.width / 2;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -433,13 +432,17 @@
             ctx.translate(radius, radius);
             ctx.rotate(spinAngle);
 
-            for (let i = 0; i < numPrizes; i++) {
-                const angle = i * arcSize;
+            let startAngle = 0;
+
+            for (let i = 0; i < prizes.length; i++) {
+                const prize = prizes[i];
+                const arcSize = (prize.percentage / 100) * 2 * Math.PI;
                 const bgColor = colors[i % 2];
+
                 ctx.beginPath();
                 ctx.fillStyle = bgColor;
                 ctx.moveTo(0, 0);
-                ctx.arc(0, 0, radius - 5, angle, angle + arcSize);
+                ctx.arc(0, 0, radius - 5, startAngle, startAngle + arcSize);
                 ctx.closePath();
                 ctx.fill();
 
@@ -448,12 +451,16 @@
                 ctx.font = 'bold 16px Poppins';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.rotate(angle + arcSize / 2);
-                ctx.fillText(prizes[i].name, radius * 0.65, 0);
+                ctx.rotate(startAngle + arcSize / 2);
+                ctx.fillText(prize.name, radius * 0.65, 0);
                 ctx.restore();
+
+                startAngle += arcSize;
             }
+
             ctx.restore();
         };
+
 
         // --- Spin ---
         const easeOut = t => 1 - Math.pow(1 - t, 4);
@@ -501,10 +508,25 @@
             isSpinning = false;
             spinBtn.disabled = false;
             cancelAnimationFrame(animationFrameId);
-            const finalAngle = (spinAngle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
-            const winningIndex = Math.floor((2 * Math.PI - finalAngle) / ((2 * Math.PI) / prizes.length)) % prizes.length;
+
+            // Calculate angle at pointer (assuming pointer at 12 o'clock)
+            const finalAngle = (2 * Math.PI - (spinAngle % (2 * Math.PI))) % (2 * Math.PI);
+
+            let cumulativeAngle = 0;
+            let winningIndex = 0;
+
+            for (let i = 0; i < prizes.length; i++) {
+                const arcSize = (prizes[i].percentage / 100) * 2 * Math.PI;
+                if (finalAngle >= cumulativeAngle && finalAngle < cumulativeAngle + arcSize) {
+                    winningIndex = i;
+                    break;
+                }
+                cumulativeAngle += arcSize;
+            }
+
             setTimeout(() => showPrizeModal(prizes[winningIndex]), 500);
         };
+
         // logo
         function updateLogoList() {
             logoListEl.innerHTML = '';
@@ -715,24 +737,39 @@
         };
 
         // --- Modals ---
+        // const showPrizeModal = (prize) => {
+        //     prizeResult.textContent = prize.name;
+        //     if (prize.image) {
+        //         wonPrizeImage.src = prize.image;
+        //         wonPrizeImage.classList.remove('hidden');
+        //     } else {
+        //         wonPrizeImage.classList.add('hidden');
+        //     }
+        //     if (prizeBannerUrl) {
+        //         prizeBannerImg.src = prizeBannerUrl;
+        //         prizeBannerContainer.classList.remove('hidden');
+        //     } else {
+        //         prizeBannerContainer.classList.add('hidden');
+        //     }
+        //     prizeModal.classList.remove('hidden');
+        //     setTimeout(() => prizeModal.querySelector('div').classList.remove('scale-95', 'opacity-0'), 10);
+        //     confetti({ particleCount: 150, spread: 180, origin: { y: 0.6 } });
+        // };
+
         const showPrizeModal = (prize) => {
             prizeResult.textContent = prize.name;
-            if (prize.image) {
-                wonPrizeImage.src = prize.image;
-                wonPrizeImage.classList.remove('hidden');
-            } else {
-                wonPrizeImage.classList.add('hidden');
-            }
-            if (prizeBannerUrl) {
-                prizeBannerImg.src = prizeBannerUrl;
-                prizeBannerContainer.classList.remove('hidden');
-            } else {
-                prizeBannerContainer.classList.add('hidden');
-            }
+
+            // Remove image logic since images are gone from HTML
+            // if (prize.image) { ... }
+            // if (prizeBannerUrl) { ... }
+
             prizeModal.classList.remove('hidden');
             setTimeout(() => prizeModal.querySelector('div').classList.remove('scale-95', 'opacity-0'), 10);
-            confetti({ particleCount: 150, spread: 180, origin: { y: 0.6 } });
+
+            confetti({ particleCount: 500, spread: 200, origin: { y: 0.6 } });
         };
+
+
 
         closePrizeModalBtn.addEventListener('click', () => {
             // Animate and hide the prize modal
