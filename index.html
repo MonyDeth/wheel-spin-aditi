@@ -439,6 +439,7 @@
                 const arcSize = (prize.percentage / 100) * 2 * Math.PI;
                 const bgColor = colors[i % 2];
 
+                // Draw the slice
                 ctx.beginPath();
                 ctx.fillStyle = bgColor;
                 ctx.moveTo(0, 0);
@@ -446,13 +447,19 @@
                 ctx.closePath();
                 ctx.fill();
 
+                // Draw the prize label
                 ctx.save();
                 ctx.fillStyle = getContrastColor(bgColor);
                 ctx.font = 'bold 16px Poppins';
-                ctx.textAlign = 'center';
+                ctx.textAlign = 'right';
                 ctx.textBaseline = 'middle';
+
                 ctx.rotate(startAngle + arcSize / 2);
-                ctx.fillText(prize.name, radius * 0.65, 0);
+
+                // Place text near the edge with padding
+                const padding = 20;
+                ctx.fillText(prize.name, radius - padding, 0);
+
                 ctx.restore();
 
                 startAngle += arcSize;
@@ -460,6 +467,7 @@
 
             ctx.restore();
         };
+
 
 
         // --- Spin ---

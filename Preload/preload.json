@@ -1,16 +1,21 @@
 {
   "prizes": [
-    { "name": "Spin Again 😅", "image": "<ADD_LINK_HERE>", "percentage": 12.14 },
-    { "name": "50% Scholarship 🤩", "image": "<ADD_LINK_HERE>", "percentage": 6.13 },
-    { "name": "Spin Again 😅", "image": "<ADD_LINK_HERE>", "percentage": 12.14 },
-    { "name": "Tech Quiz! 🧐", "image": "<ADD_LINK_HERE>", "percentage": 14.84 },
-    { "name": "Selfie with Our Team 😎", "image": "<ADD_LINK_HERE>", "percentage": 7.42 },
-    { "name": "30% Scholarship 😄", "image": "<ADD_LINK_HERE>", "percentage": 9.18 },
-    { "name": "Free One Course 😊", "image": "<ADD_LINK_HERE>", "percentage": 3.06 },
-    { "name": "Tech Career Consultation 👩‍💼", "image": "<ADD_LINK_HERE>", "percentage": 14.84 },
-    { "name": "Selfie with Our Team 😎", "image": "<ADD_LINK_HERE>", "percentage": 7.42 },
-    { "name": "ADITI Academy Tote Bag 🥰", "image": "<ADD_LINK_HERE>", "percentage": 14.98 }
+    { "name": "😅 Spin Again", "image": "<ADD_LINK_HERE>", "percentage": 10 },
+    { "name": "🤩 50% Scholarship", "image": "<ADD_LINK_HERE>", "percentage": 6 },
+    { "name": "🧐 Tech Quiz!", "image": "<ADD_LINK_HERE>", "percentage": 12 },
+    { "name": "😎 Selfie with Our Team", "image": "<ADD_LINK_HERE>", "percentage": 6 },
+    { "name": "😄 30% Scholarship", "image": "<ADD_LINK_HERE>", "percentage": 8 },
+    { "name": "😊 Free One Course", "image": "<ADD_LINK_HERE>", "percentage": 3 },
+    { "name": "👩‍💼 Tech Career Consultation", "image": "<ADD_LINK_HERE>", "percentage": 12 },
+    { "name": "🥰 ADITI Academy Tote Bag", "image": "<ADD_LINK_HERE>", "percentage": 12 },
+    { "name": "😢 Better Luck Next Time", "image": "<ADD_LINK_HERE>", "percentage": 8 },
+    { "name": "🙌 High Five with Our Team", "image": "<ADD_LINK_HERE>", "percentage": 7 },
+    { "name": "😆 See You Next Year", "image": "<ADD_LINK_HERE>", "percentage": 6 },
+    { "name": "🤓 You’re Too Smart for Prizes", "image": "<ADD_LINK_HERE>", "percentage": 5 },
+    { "name": "💘 Free Heart from Our Team", "image": "<ADD_LINK_HERE>", "percentage": 3 },
+    { "name": "😢 Better Luck Next Time", "image": "<ADD_LINK_HERE>", "percentage": 8 }
   ],
+
 
 
   "prizeBannerUrl": "",
