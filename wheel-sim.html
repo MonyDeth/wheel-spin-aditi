@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel Simulation</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prizes = [
+                { name: "😅 Spin Again", percentage: 11.4 },
+                { name: "🤩 Get 50% Scholarship", percentage: 3 },
+                { name: "😎 Selfie with Our Team", percentage: 11.4 },
+                { name: "😢 Better Luck Next Time", percentage: 11.4 },
+                { name: "😊 Free One Course", percentage: 3 },
+                { name: "🙌 High Five with Our Team", percentage: 8.5 },
+                { name: "🥰 ADITI Academy Tote Bag", percentage: 11.4 },
+                { name: "😆 See You Next Year", percentage: 8.5 },
+                { name: "👩‍💼 Free Career Consultation", percentage: 11.4 },
+                { name: "🤓 You’re Too Smart for Prizes", percentage: 8.5 },
+                { name: "😄 Get 30% Scholarship", percentage: 3 },
+                { name: "💘 Free Heart from Our Team", percentage: 8.5 }
+            ];
+
+            function runSimulation(spins) {
+                const results = {};
+                prizes.forEach(p => results[p.name] = 0);
+                const durations = [];
+
+                function spinWheelOnce() {
+                    const spinDuration = 5 + Math.random() * 7; // 5-12s
+                    const rand = Math.random() * 100;
+                    let cumulative = 0;
+                    for (const prize of prizes) {
+                        cumulative += prize.percentage;
+                        if (rand <= cumulative) {
+                            results[prize.name]++;
+                            durations.push(spinDuration);
+                            return;
+                        }
+                    }
+                }
+
+                for (let i = 0; i < spins; i++) spinWheelOnce();
+
+                const avgDuration = (durations.reduce((a,b)=>a+b,0)/spins).toFixed(2);
+                const report = [`Average Spin Duration: ${avgDuration}s`, `Total Spins: ${spins}`];
+                for (const prize of prizes) {
+                    const count = results[prize.name];
+                    const percent = ((count / spins) * 100).toFixed(2);
+                    report.push(`${prize.name}: ${count} spins (${percent}%)`);
+                }
+                document.getElementById('results').innerHTML = `<pre>${report.join('\n')}</pre>`;
+            }
+
+            document.getElementById('run-btn').addEventListener('click', () => {
+                const spins = parseInt(document.getElementById('spins-input').value, 10) || 2000;
+                runSimulation(spins);
+            });
+
+            // Run default simulation
+            runSimulation(2000);
+        });
+    </script>
+</head>
+<body>
+<h1>Wheel Simulation</h1>
+<label for="spins-input">Number of Spins:</label>
+<input type="number" id="spins-input" value="2000" min="1" style="margin-right:10px;">
+<button id="run-btn">Run Simulation</button>
+<div id="results" style="margin-top:20px;"></div>
+</body>
+</html>

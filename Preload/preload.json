@@ -1,17 +1,17 @@
 {
   "prizes": [
-      { "name": "😅 Spin Again", "image": "", "percentage": 11.4 },
-      { "name": "🤩 Get 50% Scholarship", "image": "", "percentage": 3 },
-      { "name": "😎 Selfie with Our Team", "image": "", "percentage": 11.4 },
-      { "name": "😢 Better Luck Next Time", "image": "", "percentage": 11.4 },
-      { "name": "😊 Free One Course", "image": "", "percentage": 3 },
-      { "name": "🙌 High Five with Our Team", "image": "", "percentage": 8.5 },
-      { "name": "🥰 ADITI Academy Tote Bag", "image": "", "percentage": 11.4 },
-      { "name": "😆 See You Next Year", "image": "", "percentage": 8.5 },
-      { "name": "👩‍💼 Free Career Consultation", "image": "", "percentage": 11.4 },
-      { "name": "🤓 You’re Too Smart for Prizes", "image": "", "percentage": 8.5 },
-      { "name": "😄 Get 30% Scholarship", "image": "", "percentage": 3 },
-      { "name": "💘 Free Heart from Our Team", "image": "", "percentage": 8.5 }
+    { "name": "😅 Spin Again", "image": "", "percentage": 13 },
+    { "name": "🤩 Get 50% Scholarship", "image": "", "percentage": 3 },
+    { "name": "😎 Selfie with Our Team", "image": "", "percentage": 7 },
+    { "name": "😢 Better Luck Next Time", "image": "", "percentage": 13 },
+    { "name": "😊 Free One Course", "image": "", "percentage": 3 },
+    { "name": "🙌 High Five with Our Team", "image": "", "percentage": 10 },
+    { "name": "🥰 ADITI Academy Tote Bag", "image": "", "percentage": 13 },
+    { "name": "😆 See You Next Year", "image": "", "percentage": 10 },
+    { "name": "😢 Better Luck Next Time", "image": "", "percentage": 6 },
+    { "name": "🤓 You’re Too Smart for Prizes", "image": "", "percentage": 10 },
+    { "name": "😄 Get 30% Scholarship", "image": "", "percentage": 3 },
+    { "name": "✅ Tech Quiz", "image": "", "percentage": 10 }
     ],
 
 

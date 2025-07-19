@@ -74,223 +74,223 @@
     <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-h-screen overflow-hidden">
 
 
-    <!-- Logo doubled as “Customize” button -->
-    <img src="Images/ADITI-Academy.png"
-         id="open-settings-btn"
-         class="absolute top-4 left-4 z-30 cursor-pointer  h-16 hover:scale-105 transition-transform duration-300"
-         alt="Customize">
+        <!-- Logo doubled as “Customize” button -->
+        <img src="Images/ADITI-Academy.png"
+             id="open-settings-btn"
+             class="absolute top-4 left-4 z-30 cursor-pointer  h-16 hover:scale-105 transition-transform duration-300"
+             alt="Customize">
 
-    <!-- Wheel + Ad layout -->
-    <div class="flex flex-col md:flex-row items-center min-h-screen justify-center gap-8 m-b w-full p-4">
+        <!-- Wheel + Ad layout -->
+        <div class="flex flex-col md:flex-row items-center min-h-screen justify-center gap-8 m-b w-full p-4">
 
-        <!-- ──────── Wheel (unchanged) ──────── -->
-        <div class="left-container transition-layout flex w-full md:w-1/2 justify-center items-center relative">
-            <div class="flex-shrink-0 relative flex items-center justify-center">
-                <div class="wheel-container">
-                    <canvas id="wheel-canvas" width="650" height="650"></canvas>
+            <!-- ──────── Wheel (unchanged) ──────── -->
+            <div class="left-container transition-layout flex w-full md:w-1/2 justify-center items-center relative">
+                <div class="flex-shrink-0 relative flex items-center justify-center">
+                    <div class="wheel-container">
+                        <canvas id="wheel-canvas" width="650" height="650"></canvas>
 
-                    <button id="spin-btn"
-                            class="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full border-8 border-gray-200 text-gray-800 font-bold text-xl shadow-2xl animate-pulse-zoom flex items-center justify-center text-center transition-transform duration-200 disabled:opacity-50 disabled:animate-none">
-                        SPIN
-                    </button>
+                        <button id="spin-btn"
+                                class="absolute inset-0 m-auto w-24 h-24 bg-white rounded-full border-8 border-gray-200 text-gray-800 font-bold text-xl shadow-2xl animate-pulse-zoom flex items-center justify-center text-center transition-transform duration-200 disabled:opacity-50 disabled:animate-none">
+                            SPIN
+                        </button>
+                    </div>
+                    <div class="absolute left-full top-1/2 -translate-y-1/2 -ml-3 z-10 pointer rotate-180"></div>
+
                 </div>
-                <div class="absolute left-full top-1/2 -translate-y-1/2 -ml-3 z-10 pointer rotate-180"></div>
 
+                <!-- Pointer on the right edge of the wheel -->
             </div>
 
-            <!-- Pointer on the right edge of the wheel -->
-        </div>
-
-        <!-- ──────── Advertisement banner (unchanged) ──────── -->
-        <div class="right-container transition-layout flex w-full md:w-1/2 justify-center items-center p-4" id="ad-banner">
-            <div id="ad-image-container" class="w-[500px] h-[500px] flex items-center justify-center">
-                <!-- Ad images will be injected here -->
+            <!-- ──────── Advertisement banner (unchanged) ──────── -->
+            <div class="right-container transition-layout flex w-full md:w-1/2 justify-center items-center p-4" id="ad-banner">
+                <div id="ad-image-container" class="w-[500px] h-[500px] flex items-center justify-center">
+                    <!-- Ad images will be injected here -->
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- Prize Modal -->
-<div id="prize-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
-    <div
-            class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-lg w-full mx-4 transform transition-all scale-95 opacity-0">
-        <h2 class="text-2xl font-bold text-gray-800 mb-2">Congratulations!</h2>
+    <!-- Prize Modal -->
+    <div id="prize-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div
+                class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-lg w-full mx-4 transform transition-all scale-95 opacity-0">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Congratulations!</h2>
 
-        <p class="text-gray-600 mb-4">You've won:</p>
+            <p class="text-gray-600 mb-4">You've won:</p>
 
-<!--        <img id="won-prize-image" src="" alt="Prize Image"-->
-<!--             class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg block" />-->
+            <!--        <img id="won-prize-image" src="" alt="Prize Image"-->
+            <!--             class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg block" />-->
 
-        <p id="prize-result" class="text-4xl font-bold text-[#B41F3A] mb-6"></p>
+            <p id="prize-result" class="text-4xl font-bold text-[#B41F3A] mb-6"></p>
 
-<!--        <div id="prize-banner-container" class="mb-6 hidden">-->
-<!--            <img id="prize-banner-img" src="" alt="Prize Banner" class="max-w-full h-auto rounded-lg mx-auto" />-->
-<!--        </div>-->
+            <!--        <div id="prize-banner-container" class="mb-6 hidden">-->
+            <!--            <img id="prize-banner-img" src="" alt="Prize Banner" class="max-w-full h-auto rounded-lg mx-auto" />-->
+            <!--        </div>-->
 
-        <button id="close-prize-modal"
-                class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition-transform hover:scale-105">
-            Awesome!
-        </button>
+            <button id="close-prize-modal"
+                    class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-700 transition-transform hover:scale-105">
+                Awesome!
+            </button>
+        </div>
     </div>
-</div>
 
 
-<!-- Settings Modal -->
-<div id="settings-modal" class="fixed h-90 inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
-    <div class="bg-gray-200 rounded-2xl shadow-2xl p-4 md:p-6 w-full max-w-5xl mx-4 transform transition-all scale-95 opacity-0 h-[550px] flex flex-col md:flex-row overflow-hidden">
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="fixed h-90 inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-200 rounded-2xl shadow-2xl p-4 md:p-6 w-full max-w-5xl mx-4 transform transition-all scale-95 opacity-0 h-[550px] flex flex-col md:flex-row overflow-hidden">
 
-        <!-- Left Tabs -->
-        <nav class="flex md:flex-col w-full m-4 md:w-1/4 space-x-4 md:space-x-0 md:space-y-2 overflow-x-auto md:overflow-visible flex-shrink-0 mb-4 md:mb-0 pr-2 md:pr-0">
-            <h2 class="text-2xl font-bold text-gray-800">Configuration</h2>
-            <button data-tab="prizes" class="tab-btn text-left px-4 py-3 bg-blue-100 text-blue-700 rounded-lg font-semibold">🎁 Prizes</button>
-            <button data-tab="appearance" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🎨 Appearance</button>
-            <button data-tab="background" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🌄 Background</button>
-            <button data-tab="prize-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🏆 Prize Banner</button>
-            <button data-tab="ad-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">📢 Banner</button>
-        </nav>
+            <!-- Left Tabs -->
+            <nav class="flex md:flex-col w-full m-4 md:w-1/4 space-x-4 md:space-x-0 md:space-y-2 overflow-x-auto md:overflow-visible flex-shrink-0 mb-4 md:mb-0 pr-2 md:pr-0">
+                <h2 class="text-2xl font-bold text-gray-800">Configuration</h2>
+                <button data-tab="prizes" class="tab-btn text-left px-4 py-3 bg-blue-100 text-blue-700 rounded-lg font-semibold">🎁 Prizes</button>
+                <button data-tab="appearance" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🎨 Appearance</button>
+                <button data-tab="background" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🌄 Background</button>
+                <button data-tab="prize-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">🏆 Prize Banner</button>
+                <button data-tab="ad-banner" class="tab-btn text-left px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg">📢 Banner</button>
+            </nav>
 
 
 
-        <!-- Right Content -->
-        <div class="flex-1 overflow-y-auto pl-0 md:pl-6 p-4 bg-white rounded-xl">
-            <div class="flex justify-end items-center mb-4 sticky top-0 bg-white z-10">
-                <button id="close-settings-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
-            </div>
+            <!-- Right Content -->
+            <div class="flex-1 overflow-y-auto pl-0 md:pl-6 p-4 bg-white rounded-xl">
+                <div class="flex justify-end items-center mb-4 sticky top-0 bg-white z-10">
+                    <button id="close-settings-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+                </div>
 
-            <div id="tab-content" class="space-y-10">
-                <!-- Prizes Tab -->
-                <div id="prizes-tab" class="tab-pane">
-                    <h3 class="font-semibold text-lg mb-4">Manage Prizes</h3>
-                    <div id="prize-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
+                <div id="tab-content" class="space-y-10">
+                    <!-- Prizes Tab -->
+                    <div id="prizes-tab" class="tab-pane">
+                        <h3 class="font-semibold text-lg mb-4">Manage Prizes</h3>
+                        <div id="prize-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
 
-                    <div class="mt-4 border-t pt-4 space-y-2">
-                        <p class="text-sm text-gray-500">You need at least 2 prizes to spin the wheel.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-                            <input type="text" id="new-prize-name-input" placeholder="Prize Name"
+                        <div class="mt-4 border-t pt-4 space-y-2">
+                            <p class="text-sm text-gray-500">You need at least 2 prizes to spin the wheel.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                                <input type="text" id="new-prize-name-input" placeholder="Prize Name"
+                                       class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="new-prize-image-input" placeholder="Image URL (optional)"
+                                       class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <button id="add-prize-btn"
+                                        class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appearance Tab -->
+                    <div id="appearance-tab" class="tab-pane hidden">
+                        <h3 class="font-semibold text-lg mb-4">Appearance</h3>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <div>
+                                <label for="color1" class="block text-sm font-medium text-gray-700 mb-1">Primary Color</label>
+                                <input type="color" id="color1" value="#3b82f6"
+                                       class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
+                            </div>
+                            <div>
+                                <label for="color2" class="block text-sm font-medium text-gray-700 mb-1">Secondary Color</label>
+                                <input type="color" id="color2" value="#ffffff"
+                                       class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
+                            </div>
+                            <!--                        <div class="flex items-center gap-2 ml-auto">-->
+                            <!--                            <label for="spin-duration" class="text-sm font-medium text-gray-700 whitespace-nowrap">Spin Time (seconds)</label>-->
+                            <!--                            <input type="number" id="spin-duration" min="3" max="15" value="8"-->
+                            <!--                                   class="w-16 p-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">-->
+                            <!--                        </div>-->
+                        </div>
+
+                        <h3 class="font-semibold text-lg mb-4 mt-6">Manage Logos</h3>
+                        <div id="logo-list"
+                             class="space-y-2 max-h-40 overflow-y-auto border border-gray-200 bg-gray-50 rounded-lg p-2">
+                            <!-- Logos go here -->
+                        </div>
+
+                        <p class="text-sm text-gray-500 mt-4">Upload your logos here.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
+                            <input type="text" id="new-logo-name-input" placeholder="Logo Name"
                                    class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <input type="text" id="new-prize-image-input" placeholder="Image URL (optional)"
+                            <input type="text" id="new-logo-url-input" placeholder="Logo URL"
                                    class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <button id="add-prize-btn"
+                            <button id="add-logo-btn"
+                                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Background Tab -->
+                    <div id="background-tab" class="tab-pane hidden">
+                        <h3 class="font-semibold text-lg mb-4">Page Background</h3>
+                        <p class="text-sm text-gray-600 mb-2">Enter an image URL to set as the background.</p>
+                        <div class="flex gap-2">
+                            <input type="text" id="bg-image-url" placeholder="https://example.com/image.jpg"
+                                   class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <button id="set-bg-btn"
+                                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
+                        </div>
+                        <!-- Background Image Preview -->
+                        <div id="bg-image-preview"
+                             class="mt-4 rounded-lg border border-gray-300">
+                            <img id="bg-image-preview-img" src="" alt="Background Preview"
+                                 class="w-full h-48 object-cover rounded-lg" />
+                        </div>
+                        <button id="remove-bg-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Background</button>
+                    </div>
+
+                    <!-- Prize Banner Tab -->
+                    <div id="prize-banner-tab" class="tab-pane hidden">
+                        <h3 class="font-semibold text-lg mb-4">Prize Won Banner</h3>
+                        <p class="text-sm text-gray-600 mb-2">Enter an image URL to show in the popup when a prize is won.</p>
+                        <div class="flex gap-2">
+                            <input type="text" id="prize-banner-image-url" placeholder="https://example.com/banner.jpg"
+                                   class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <button id="set-prize-banner-btn"
+                                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
+                        </div>
+                        <!-- Prize Banner Image Preview -->
+                        <div id="prize-banner-image-preview"
+                             class="mt-4 rounded-lg border border-gray-300">
+                            <img id="prize-banner-preview-img" src="" alt="Prize Banner Preview"
+                                 class="w-full h-48 object-cover rounded-lg" />
+                        </div>
+                        <button id="remove-prize-banner-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Banner</button>
+                    </div>
+
+                    <!-- Ad Banner Tab -->
+                    <div id="ad-banner-tab" class="tab-pane hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-lg">Manage Banner Images</h3>
+                            <div class="flex items-center gap-3">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <label for="ad-flip-interval" class="text-gray-700">Interval (s):</label>
+                                    <input type="number" id="ad-flip-interval" min="1" max="15" value="5"
+                                           class="w-16 p-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <button id="save-ad-settings-btn"
+                                        class="bg-blue-600 text-white font-bold py-1.5 px-4 rounded-lg hover:bg-blue-700 text-sm whitespace-nowrap">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ad-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
+
+                        <p class="text-sm text-gray-500">Add banner ads to rotate on the screen.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
+                            <input type="text" id="new-ad-name-input" placeholder="Ad Name"
+                                   class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <input type="text" id="new-ad-url-input" placeholder="Image URL"
+                                   class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <button id="add-ad-btn"
                                     class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
                                 Add
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Appearance Tab -->
-                <div id="appearance-tab" class="tab-pane hidden">
-                    <h3 class="font-semibold text-lg mb-4">Appearance</h3>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <div>
-                            <label for="color1" class="block text-sm font-medium text-gray-700 mb-1">Primary Color</label>
-                            <input type="color" id="color1" value="#3b82f6"
-                                   class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
-                        </div>
-                        <div>
-                            <label for="color2" class="block text-sm font-medium text-gray-700 mb-1">Secondary Color</label>
-                            <input type="color" id="color2" value="#ffffff"
-                                   class="block rounded-lg border border-gray-300 w-10 h-10 p-0">
-                        </div>
-<!--                        <div class="flex items-center gap-2 ml-auto">-->
-<!--                            <label for="spin-duration" class="text-sm font-medium text-gray-700 whitespace-nowrap">Spin Time (seconds)</label>-->
-<!--                            <input type="number" id="spin-duration" min="3" max="15" value="8"-->
-<!--                                   class="w-16 p-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">-->
-<!--                        </div>-->
-                    </div>
-
-                    <h3 class="font-semibold text-lg mb-4 mt-6">Manage Logos</h3>
-                    <div id="logo-list"
-                         class="space-y-2 max-h-40 overflow-y-auto border border-gray-200 bg-gray-50 rounded-lg p-2">
-                        <!-- Logos go here -->
-                    </div>
-
-                    <p class="text-sm text-gray-500 mt-4">Upload your logos here.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
-                        <input type="text" id="new-logo-name-input" placeholder="Logo Name"
-                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <input type="text" id="new-logo-url-input" placeholder="Logo URL"
-                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <button id="add-logo-btn"
-                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
-                            Add
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Background Tab -->
-                <div id="background-tab" class="tab-pane hidden">
-                    <h3 class="font-semibold text-lg mb-4">Page Background</h3>
-                    <p class="text-sm text-gray-600 mb-2">Enter an image URL to set as the background.</p>
-                    <div class="flex gap-2">
-                        <input type="text" id="bg-image-url" placeholder="https://example.com/image.jpg"
-                               class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <button id="set-bg-btn"
-                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
-                    </div>
-                    <!-- Background Image Preview -->
-                    <div id="bg-image-preview"
-                         class="mt-4 rounded-lg border border-gray-300">
-                        <img id="bg-image-preview-img" src="" alt="Background Preview"
-                             class="w-full h-48 object-cover rounded-lg" />
-                    </div>
-                    <button id="remove-bg-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Background</button>
-                </div>
-
-                <!-- Prize Banner Tab -->
-                <div id="prize-banner-tab" class="tab-pane hidden">
-                    <h3 class="font-semibold text-lg mb-4">Prize Won Banner</h3>
-                    <p class="text-sm text-gray-600 mb-2">Enter an image URL to show in the popup when a prize is won.</p>
-                    <div class="flex gap-2">
-                        <input type="text" id="prize-banner-image-url" placeholder="https://example.com/banner.jpg"
-                               class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <button id="set-prize-banner-btn"
-                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">Set</button>
-                    </div>
-                    <!-- Prize Banner Image Preview -->
-                    <div id="prize-banner-image-preview"
-                         class="mt-4 rounded-lg border border-gray-300">
-                        <img id="prize-banner-preview-img" src="" alt="Prize Banner Preview"
-                             class="w-full h-48 object-cover rounded-lg" />
-                    </div>
-                    <button id="remove-prize-banner-btn" class="mt-2 text-sm text-red-500 hover:underline">Remove Banner</button>
-                </div>
-
-                <!-- Ad Banner Tab -->
-                <div id="ad-banner-tab" class="tab-pane hidden">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-lg">Manage Banner Images</h3>
-                        <div class="flex items-center gap-3">
-                            <div class="flex items-center gap-2 text-sm">
-                                <label for="ad-flip-interval" class="text-gray-700">Interval (s):</label>
-                                <input type="number" id="ad-flip-interval" min="1" max="15" value="5"
-                                       class="w-16 p-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <button id="save-ad-settings-btn"
-                                    class="bg-blue-600 text-white font-bold py-1.5 px-4 rounded-lg hover:bg-blue-700 text-sm whitespace-nowrap">
-                                Save
-                            </button>
-                        </div>
-                    </div>
-
-                    <div id="ad-list" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-2"></div>
-
-                    <p class="text-sm text-gray-500">Add banner ads to rotate on the screen.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 items-center">
-                        <input type="text" id="new-ad-name-input" placeholder="Ad Name"
-                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <input type="text" id="new-ad-url-input" placeholder="Image URL"
-                               class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <button id="add-ad-btn"
-                                class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto">
-                            Add
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 
@@ -955,4 +955,4 @@
 
 </script>
 </body>
-</html>
+</html>s
